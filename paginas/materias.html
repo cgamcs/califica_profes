@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Voz Académica - Materias</title>
+
+  <link rel="shortcut icon" href="/img/notion-face.png" type="image/x-icon">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white min-h-screen">
+  <!-- Header -->
+  <header class="border-b border-gray-200">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/paginas/fime.html" class="text-xl font-bold text-black">FIME</a>
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="/index.html" class="text-sm text-gray-600">Inicio</a>
+        <a href="/paginas/materias.html" class="text-sm text-indigo-600 font-medium">Materias</a>
+        <a href="/paginas/maestros.html" class="text-sm text-gray-600">Maestros</a>
+      </nav>
+      <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+        Iniciar Sesión
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-6">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Materias</h1>
+      <a href="agregar-materia.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+        Agregar Materia
+      </a>
+    </div>
+    
+    <!-- Search Bar -->
+    <div class="relative max-w-2xl mx-auto mb-8">
+      <input
+        type="text"
+        placeholder="Buscar por nombre del maestro o materia..."
+        class="w-full border border-gray-200 px-4 py-3 rounded-xl shadow-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none shadow-sm"
+      />
+      <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 text-black w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    
+    <!-- Subjects List -->
+    <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+      <ul class="divide-y divide-gray-200">
+        <li>
+          <a href="materia-detalle.html" class="block hover:bg-gray-50 p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-medium text-indigo-600">Cálculo Diferencial e Integral</h3>
+                <p class="text-sm text-gray-500">Matemáticas</p>
+              </div>
+              <div class="text-sm text-gray-500">
+                8 profesores
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="materia-detalle.html" class="block hover:bg-gray-50 p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-medium text-indigo-600">Física Mecánica</h3>
+                <p class="text-sm text-gray-500">Ciencias</p>
+              </div>
+              <div class="text-sm text-gray-500">
+                6 profesores
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="materia-detalle.html" class="block hover:bg-gray-50 p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-medium text-indigo-600">Programación Orientada a Objetos</h3>
+                <p class="text-sm text-gray-500">Informática</p>
+              </div>
+              <div class="text-sm text-gray-500">
+                10 profesores
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="materia-detalle.html" class="block hover:bg-gray-50 p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-medium text-indigo-600">Literatura Contemporánea</h3>
+                <p class="text-sm text-gray-500">Humanidades</p>
+              </div>
+              <div class="text-sm text-gray-500">
+                4 profesores
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="materia-detalle.html" class="block hover:bg-gray-50 p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-medium text-indigo-600">Química Orgánica</h3>
+                <p class="text-sm text-gray-500">Ciencias</p>
+              </div>
+              <div class="text-sm text-gray-500">
+                5 profesores
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="materia-detalle.html" class="block hover:bg-gray-50 p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-medium text-indigo-600">Estadística y Probabilidad</h3>
+                <p class="text-sm text-gray-500">Matemáticas</p>
+              </div>
+              <div class="text-sm text-gray-500">
+                7 profesores
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="materia-detalle.html" class="block hover:bg-gray-50 p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-medium text-indigo-600">Álgebra Lineal</h3>
+                <p class="text-sm text-gray-500">Matemáticas</p>
+              </div>
+              <div class="text-sm text-gray-500">
+                6 profesores
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="materia-detalle.html" class="block hover:bg-gray-50 p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-medium text-indigo-600">Economía</h3>
+                <p class="text-sm text-gray-500">Ciencias Sociales</p>
+              </div>
+              <div class="text-sm text-gray-500">
+                8 profesores
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="materia-detalle.html" class="block hover:bg-gray-50 p-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-medium text-indigo-600">Bases de Datos</h3>
+                <p class="text-sm text-gray-500">Informática</p>
+              </div>
+              <div class="text-sm text-gray-500">
+                9 profesores
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

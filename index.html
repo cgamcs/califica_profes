@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Voz Académica - Calificación de Maestros</title><!-- Lista de Maestros -->
+
+  <link rel="shortcut icon" href="/img/notion-face.png" type="image/x-icon">
+
+  <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            },
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+              950: '#451a03',
+            },
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-white">
+  <!-- Logo y título -->
+  <div class="pt-10 pb-6 text-center">
+    <h1 class="text-3xl font-bold text-indigo-600">Tu Voz Académica</h1>
+    <p class="text-gray-600 mt-2">Califica y encuentra a los mejores maestros</p>
+  </div>
+
+  <!-- Search Section -->
+  <section class="py-6 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="relative max-w-2xl mx-auto">
+        <input
+            type="text"
+            placeholder="Buscar por nombre del maestro o materia..."
+            class="w-full px-8 py-4 rounded-xl shadow-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none shadow-sm"
+        />
+        <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 text-black w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Selection -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div>
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">Lista de Maestros</h2>
+          <p class="text-gray-600">Selecciona tu facultad</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <!-- Facultad 1 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FTSYDH</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Trabajo Social y Desarrollo Humano</p>
+          </button>
+          
+          <!-- Facultad 2 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FFYL</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Filosofía y Letras</p>
+          </button>
+          
+          <!-- Facultad 3 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FACDYC</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Derecho y Criminología</p>
+          </button>
+          
+          <!-- Facultad 4 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FACPYA</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Contaduría Pública y Administración</p>
+          </button>
+          
+          <!-- Facultad 5 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FARQ</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Arquitectura</p>
+          </button>
+          
+          <!-- Facultad 6 -->
+          <a href="/paginas/fime.html" class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FIME</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Ingeniería Mecánica y Eléctrica</p>
+          </a>
+          
+          <!-- Facultad 7 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FIC</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Ingeniería Civil</p>
+          </button>
+          
+          <!-- Facultad 8 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FCQ</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Ciencias Químicas</p>
+          </button>
+          
+          <!-- Facultad 9 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FCFM</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Ciencias Físico Matemáticas</p>
+          </button>
+          
+          <!-- Facultad 10 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FOD</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Organización Deportiva</p>
+          </button>
+          
+          <!-- Facultad 11 -->
+          <button class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:bg-indigo-600 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            <h3 class="font-bold text-lg mb-1">FCB</h3>
+            <p class="text-xs opacity-80 line-clamp-2">Facultad de Ciencias Biológicas</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

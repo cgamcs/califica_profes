@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Voz Académica - Detalle de Materia</title>
+
+  <link rel="shortcut icon" href="/img/notion-face.png" type="image/x-icon">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white min-h-screen">
+  <!-- Header -->
+  <header class="border-b border-gray-200">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/paginas/fime.html" class="text-xl font-bold text-black">FIME</a>
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="/index.html" class="text-sm text-gray-600">Inicio</a>
+        <a href="/paginas/materias.html" class="text-sm text-indigo-600 font-medium">Materias</a>
+        <a href="/paginas/maestros.html" class="text-sm text-gray-600">Maestros</a>
+      </nav>
+      <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+        Iniciar Sesión
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-6">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Cálculo Diferencial e Integral</h1>
+    </div>
+    
+    <!-- Subject Info -->
+    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+        <div>
+          <h3 class="text-sm font-medium text-gray-500">Departamento</h3>
+          <p>Matemáticas</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-medium text-gray-500">Créditos</h3>
+          <p>5</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-medium text-gray-500">Profesores</h3>
+          <p>5</p>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-sm font-medium text-gray-500 mb-1">Descripción</h3>
+        <p class="text-gray-700">Curso fundamental que cubre los conceptos básicos del cálculo, incluyendo límites, derivadas e integrales.</p>
+      </div>
+    </div>
+    
+    <!-- Teachers List -->
+    <h2 class="text-xl font-semibold mb-4">Profesores que imparten esta materia</h2>
+    
+    <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Profesor</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Calificación</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reseñas</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <a href="maestro-detalle.html" class="text-indigo-600 font-medium">
+                Dr. Juan Martínez
+              </a>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <span class="bg-indigo-100 text-indigo-800 font-bold rounded px-2 py-1 text-sm mr-2">
+                  4.5
+                </span>
+                <div class="flex">
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star-half-alt text-indigo-500 text-sm"></i>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              28
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <a href="maestro-detalle.html" class="text-indigo-600 font-medium">
+                Dra. Ana López
+              </a>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <span class="bg-indigo-100 text-indigo-800 font-bold rounded px-2 py-1 text-sm mr-2">
+                  3.8
+                </span>
+                <div class="flex">
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star-half-alt text-indigo-500 text-sm"></i>
+                  <i class="far fa-star text-gray-300 text-sm"></i>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              15
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <a href="maestro-detalle.html" class="text-indigo-600 font-medium">
+                Prof. Roberto Sánchez
+              </a>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <span class="bg-indigo-100 text-indigo-800 font-bold rounded px-2 py-1 text-sm mr-2">
+                  4.2
+                </span>
+                <div class="flex">
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="far fa-star text-gray-300 text-sm"></i>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              22
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <a href="maestro-detalle.html" class="text-indigo-600 font-medium">
+                Dra. Carmen Vega
+              </a>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <span class="bg-indigo-100 text-indigo-800 font-bold rounded px-2 py-1 text-sm mr-2">
+                  4.7
+                </span>
+                <div class="flex">
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star-half-alt text-indigo-500 text-sm"></i>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              31
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <a href="maestro-detalle.html" class="text-indigo-600 font-medium">
+                Dr. Miguel Torres
+              </a>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <span class="bg-indigo-100 text-indigo-800 font-bold rounded px-2 py-1 text-sm mr-2">
+                  3.5
+                </span>
+                <div class="flex">
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star text-indigo-500 text-sm"></i>
+                  <i class="fas fa-star-half-alt text-indigo-500 text-sm"></i>
+                  <i class="far fa-star text-gray-300 text-sm"></i>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              12
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
