@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RATE - Panel de Administración</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-black">
+        RATE <span class="text-indigo-600 text-sm ml-2">Admin</span>
+      </a>
+      
+      <!-- Mobile menu button -->
+      <button 
+        id="mobile-menu-button"
+        class="md:hidden text-gray-500 hover:text-gray-700"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Desktop navigation -->
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="facultades.html" class="text-sm text-gray-600">Facultades</a>
+        <a href="materias.html" class="text-sm text-gray-600">Materias</a>
+        <a href="profesores.html" class="text-sm text-gray-600">Profesores</a>
+        <a href="../index.html" class="text-sm text-gray-600">Volver al sitio</a>
+      </nav>
+      
+      <div class="hidden md:block">
+        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+          Cerrar Sesión
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 py-2">
+      <nav class="container mx-auto px-4 flex flex-col space-y-3">
+        <a href="facultades.html" class="text-sm text-gray-600">Facultades</a>
+        <a href="materias.html" class="text-sm text-gray-600">Materias</a>
+        <a href="profesores.html" class="text-sm text-gray-600">Profesores</a>
+        <a href="../index.html" class="text-sm text-gray-600">Volver al sitio</a>
+        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full">
+          Cerrar Sesión
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-6">
+    <h1 class="text-2xl font-bold mb-6">Panel de Administración</h1>
+    
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <a href="facultades.html" class="bg-white rounded-lg border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm text-gray-500">Facultades</p>
+            <p class="text-2xl font-bold mt-1">8</p>
+          </div>
+          <div class="text-3xl">🏛️</div>
+        </div>
+      </a>
+      
+      <a href="materias.html" class="bg-white rounded-lg border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm text-gray-500">Materias</p>
+            <p class="text-2xl font-bold mt-1">124</p>
+          </div>
+          <div class="text-3xl">📚</div>
+        </div>
+      </a>
+      
+      <a href="profesores.html" class="bg-white rounded-lg border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm text-gray-500">Profesores</p>
+            <p class="text-2xl font-bold mt-1">87</p>
+          </div>
+          <div class="text-3xl">👨‍🏫</div>
+        </div>
+      </a>
+      
+      <a href="#" class="bg-white rounded-lg border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm text-gray-500">Reseñas</p>
+            <p class="text-2xl font-bold mt-1">342</p>
+          </div>
+          <div class="text-3xl">⭐</div>
+        </div>
+      </a>
+    </div>
+    
+    <!-- Recent Activity -->
+    <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+      <div class="p-4 bg-indigo-600 text-white">
+        <h2 class="font-medium">Actividad Reciente</h2>
+      </div>
+      <div class="divide-y divide-gray-200">
+        <div class="p-4 hover:bg-gray-50">
+          <div class="flex justify-between">
+            <div>
+              <p class="font-medium">Nuevo profesor agregado</p>
+              <p class="text-sm text-gray-500">Dr. Javier Méndez - Informática</p>
+            </div>
+            <p class="text-sm text-gray-500">Hace 2 horas</p>
+          </div>
+        </div>
+        
+        <div class="p-4 hover:bg-gray-50">
+          <div class="flex justify-between">
+            <div>
+              <p class="font-medium">Materia actualizada</p>
+              <p class="text-sm text-gray-500">Algoritmos Avanzados - Créditos cambiados a 6</p>
+            </div>
+            <p class="text-sm text-gray-500">Hace 5 horas</p>
+          </div>
+        </div>
+        
+        <div class="p-4 hover:bg-gray-50">
+          <div class="flex justify-between">
+            <div>
+              <p class="font-medium">Facultad agregada</p>
+              <p class="text-sm text-gray-500">Facultad de Ciencias Ambientales</p>
+            </div>
+            <p class="text-sm text-gray-500">Hace 1 día</p>
+          </div>
+        </div>
+        
+        <div class="p-4 hover:bg-gray-50">
+          <div class="flex justify-between">
+            <div>
+              <p class="font-medium">Profesor eliminado</p>
+              <p class="text-sm text-gray-500">Lic. María González - Humanidades</p>
+            </div>
+            <p class="text-sm text-gray-500">Hace 2 días</p>
+          </div>
+        </div>
+        
+        <div class="p-4 hover:bg-gray-50">
+          <div class="flex justify-between">
+            <div>
+              <p class="font-medium">Materia agregada</p>
+              <p class="text-sm text-gray-500">Inteligencia Artificial - Informática</p>
+            </div>
+            <p class="text-sm text-gray-500">Hace 3 días</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
