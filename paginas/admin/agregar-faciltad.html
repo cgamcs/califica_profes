@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProfeScore - Agregar Facultad</title>
+
+  <link rel="shortcut icon" href="/img/notion-face.png" type="image/x-icon">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-black">
+        ProfeScore <span class="text-indigo-600 text-sm ml-2">Admin</span>
+      </a>
+      
+      <!-- Mobile menu button -->
+      <button 
+        id="mobile-menu-button"
+        class="md:hidden text-gray-500 hover:text-gray-700"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Desktop navigation -->
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="/paginas/admin/facultades.html" class="text-sm text-indigo-600 font-medium">Facultades</a>
+        <a href="/paginas/admin/materias.html" class="text-sm text-gray-600">Materias</a>
+        <a href="/paginas/admin/profesores.html" class="text-sm text-gray-600">Profesores</a>
+        <a href="/index.html" class="text-sm text-gray-600">Volver al sitio</a>
+      </nav>
+      
+      <div class="hidden md:block">
+        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+          Cerrar Sesión
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 py-2">
+      <nav class="container mx-auto px-4 flex flex-col space-y-3">
+        <a href="facultades.html" class="text-sm text-indigo-600 font-medium">Facultades</a>
+        <a href="materias.html" class="text-sm text-gray-600">Materias</a>
+        <a href="profesores.html" class="text-sm text-gray-600">Profesores</a>
+        <a href="../index.html" class="text-sm text-gray-600">Volver al sitio</a>
+        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full">
+          Cerrar Sesión
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-6">
+    <h1 class="text-2xl font-bold mb-6">Agregar Nueva Facultad</h1>
+    
+    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6 max-w-2xl">
+      <form id="facultad-form" class="space-y-6">
+        <div class="space-y-2">
+          <label for="nombre" class="block text-sm font-medium text-gray-700">
+            Nombre de la Facultad
+          </label>
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="Ej. Facultad de Ingeniería"
+          >
+          <p id="nombre-error" class="text-red-500 text-sm mt-1 hidden">El nombre es obligatorio</p>
+        </div>
+        
+        <div class="space-y-2">
+          <label for="abreviatura" class="block text-sm font-medium text-gray-700">
+            Abreviatura
+          </label>
+          <input
+            id="abreviatura"
+            name="abreviatura"
+            type="text"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="Ej. FI"
+          >
+          <p id="abreviatura-error" class="text-red-500 text-sm mt-1 hidden">La abreviatura es obligatoria</p>
+        </div>
+        
+        <div class="pt-4 flex justify-end space-x-4">
+          <a
+            href="facultades.html"
+            class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+          >
+            Cancelar
+          </a>
+          <button
+            type="submit"
+            class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+          >
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Validación del formulario
+    const facultadForm = document.getElementById('facultad-form');
+    const nombreInput = document.getElementById('nombre');
+    const abreviaturaInput = document.getElementById('abreviatura');
+    const nombreError = document.getElementById('nombre-error');
+    const abreviaturaError = document.getElementById('abreviatura-error');
+    
+    facultadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      let isValid = true;
+      
+      // Validar nombre
+      if (!nombreInput.value.trim()) {
+        nombreError.classList.remove('hidden');
+        nombreInput.classList.add('border-red-500');
+        isValid = false;
+      } else {
+        nombreError.classList.add('hidden');
+        nombreInput.classList.remove('border-red-500');
+      }
+      
+      // Validar abreviatura
+      if (!abreviaturaInput.value.trim()) {
+        abreviaturaError.textContent = 'La abreviatura es obligatoria';
+        abreviaturaError.classList.remove('hidden');
+        abreviaturaInput.classList.add('border-red-500');
+        isValid = false;
+      } else if (abreviaturaInput.value.length > 5) {
+        abreviaturaError.textContent = 'La abreviatura debe tener máximo 5 caracteres';
+        abreviaturaError.classList.remove('hidden');
+        abreviaturaInput.classList.add('border-red-500');
+        isValid = false;
+      } else {
+        abreviaturaError.classList.add('hidden');
+        abreviaturaInput.classList.remove('border-red-500');
+      }
+      
+      if (isValid) {
+        // Aquí iría la lógica para guardar la facultad
+        // Por ahora, solo redirigimos a la lista de facultades
+        window.location.href = 'facultades.html';
+      }
+    });
+    
+    // Limpiar errores al escribir
+    nombreInput.addEventListener('input', () => {
+      nombreError.classList.add('hidden');
+      nombreInput.classList.remove('border-red-500');
+    });
+    
+    abreviaturaInput.addEventListener('input', () => {
+      abreviaturaError.classList.add('hidden');
+      abreviaturaInput.classList.remove('border-red-500');
+    });
+  </script>
+</body>
+</html>

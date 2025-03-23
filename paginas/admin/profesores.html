@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProfeScore - Administrar Profesores</title>
+
+  <link rel="shortcut icon" href="/img/notion-face.png" type="image/x-icon">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-black">
+        ProfeScore <span class="text-indigo-600 text-sm ml-2">Admin</span>
+      </a>
+      
+      <!-- Mobile menu button -->
+      <button 
+        id="mobile-menu-button"
+        class="md:hidden text-gray-500 hover:text-gray-700"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Desktop navigation -->
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="/paginas/admin/facultades.html" class="text-sm text-gray-600">Facultades</a>
+        <a href="/paginas/admin/materias.html" class="text-sm text-gray-600">Materias</a>
+        <a href="/paginas/admin/profesores.html" class="text-sm text-indigo-600 font-medium">Profesores</a>
+        <a href="/index.html" class="text-sm text-gray-600">Volver al sitio</a>
+      </nav>
+      
+      <div class="hidden md:block">
+        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+          Cerrar Sesión
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 py-2">
+      <nav class="container mx-auto px-4 flex flex-col space-y-3">
+        <a href="facultades.html" class="text-sm text-gray-600">Facultades</a>
+        <a href="materias.html" class="text-sm text-gray-600">Materias</a>
+        <a href="profesores.html" class="text-sm text-indigo-600 font-medium">Profesores</a>
+        <a href="../index.html" class="text-sm text-gray-600">Volver al sitio</a>
+        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full">
+          Cerrar Sesión
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-6">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Administrar Profesores</h1>
+      <a 
+        href="agregar-profesor.html" 
+        class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center"
+      >
+        <i class="fas fa-plus mr-2"></i> Agregar Profesor
+      </a>
+    </div>
+    
+    <!-- Barra de búsqueda -->
+    <div class="relative w-full max-w-md mb-6">
+      <div class="relative">
+        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        <input 
+          type="text" 
+          id="search-input"
+          placeholder="Buscar profesores..." 
+          class="pl-10 py-2 w-full rounded-lg border border-gray-200 shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+        >
+      </div>
+    </div>
+    
+    <!-- Tabla de profesores -->
+    <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Departamento</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Materias</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Calificación</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200" id="profesores-table-body">
+            <tr class="hover:bg-gray-50 profesor-row">
+              <td class="px-6 py-4 whitespace-nowrap font-medium">Dr. Juan Martínez</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Matemáticas</td>
+              <td class="px-6 py-4 text-sm text-gray-500">
+                <div class="flex flex-wrap gap-1">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                    Cálculo Diferencial
+                  </span>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                    Álgebra Lineal
+                  </span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="bg-indigo-100 text-indigo-800 font-bold rounded px-2 py-1 text-sm mr-2">
+                    4.5
+                  </span>
+                  <div class="flex text-indigo-500">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <div class="flex space-x-2">
+                  <a href="editar-profesor.html?id=1" class="text-indigo-600 hover:text-indigo-900">
+                    <i class="fas fa-edit h-5 w-5"></i>
+                  </a>
+                  <button class="text-red-600 hover:text-red-900 delete-btn" data-id="1" data-name="Dr. Juan Martínez">
+                    <i class="fas fa-trash h-5 w-5"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50 profesor-row">
+              <td class="px-6 py-4 whitespace-nowrap font-medium">Dra. María Rodríguez</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Física</td>
+              <td class="px-6 py-4 text-sm text-gray-500">
+                <div class="flex flex-wrap gap-1">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                    Física Mecánica
+                  </span>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                    Termodinámica
+                  </span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="bg-indigo-100 text-indigo-800 font-bold rounded px-2 py-1 text-sm mr-2">
+                    4.8
+                  </span>
+                  <div class="flex text-indigo-500">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <div class="flex space-x-2">
+                  <a href="editar-profesor.html?id=2" class="text-indigo-600 hover:text-indigo-900">
+                    <i class="fas fa-edit h-5 w-5"></i>
+                  </a>
+                  <button class="text-red-600 hover:text-red-900 delete-btn" data-id="2" data-name="Dra. María Rodríguez">
+                    <i class="fas fa-trash h-5 w-5"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50 profesor-row">
+              <td class="px-6 py-4 whitespace-nowrap font-medium">Prof. Carlos Gómez</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Informática</td>
+              <td class="px-6 py-4 text-sm text-gray-500">
+                <div class="flex flex-wrap gap-1">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                    Programación Orientada a Objetos
+                  </span>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                    Bases de Datos
+                  </span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="bg-indigo-100 text-indigo-800 font-bold rounded px-2 py-1 text-sm mr-2">
+                    4.2
+                  </span>
+                  <div class="flex text-indigo-500">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <div class="flex space-x-2">
+                  <a href="editar-profesor.html?id=3" class="text-indigo-600 hover:text-indigo-900">
+                    <i class="fas fa-edit h-5 w-5"></i>
+                  </a>
+                  <button class="text-red-600 hover:text-red-900 delete-btn" data-id="3" data-name="Prof. Carlos Gómez">
+                    <i class="fas fa-trash h-5 w-5"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50 profesor-row">
+              <td class="px-6 py-4 whitespace-nowrap font-medium">Dra. Ana López</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Química</td>
+              <td class="px-6 py-4 text-sm text-gray-500">
+                <div class="flex flex-wrap gap-1">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                    Química Orgánica
+                  </span>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                    Bioquímica
+                  </span>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="bg-indigo-100 text-indigo-800 font-bold rounded px-2 py-1 text-sm mr-2">
+                    3.9
+                  </span>
+                  <div class="flex text-indigo-500">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <div class="flex space-x-2">
+                  <a href="editar-profesor.html?id=4" class="text-indigo-600 hover:text-indigo-900">
+                    <i class="fas fa-edit h-5 w-5"></i>
+                  </a>
+                  <button class="text-red-600 hover:text-red-900 delete-btn" data-id="4" data-name="Dra. Ana López">
+                    <i class="fas fa-trash h-5 w-5"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div id="no-results" class="text-center py-4 text-gray-500 hidden">
+        No se encontraron profesores
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal de confirmación de eliminación (oculto por defecto) -->
+  <div id="delete-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Eliminar Profesor</h3>
+      <p id="delete-message" class="text-sm text-gray-500 mb-6">
+        ¿Estás seguro de que deseas eliminar este profesor? Esta acción no se puede deshacer.
+      </p>
+      <div class="flex justify-end space-x-4">
+        <button
+          id="cancel-delete"
+          class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+        >
+          Cancelar
+        </button>
+        <button
+          id="confirm-delete"
+          class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Búsqueda de profesores
+    const searchInput = document.getElementById('search-input');
+    const profesorRows = document.querySelectorAll('.profesor-row');
+    const noResults = document.getElementById('no-results');
+    
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      let visibleCount = 0;
+      
+      profesorRows.forEach(row => {
+        const nombre = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+        const departamento = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+        const materias = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+        
+        if (nombre.includes(searchTerm) || departamento.includes(searchTerm) || materias.includes(searchTerm)) {
+          row.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+      
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    });
+
+    // Modal de eliminación
+    const deleteModal = document.getElementById('delete-modal');
+    const deleteMessage = document.getElementById('delete-message');
+    const cancelDelete = document.getElementById('cancel-delete');
+    const confirmDelete = document.getElementById('confirm-delete');
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    
+    let profesorIdToDelete = null;
+    
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const id = button.getAttribute('data-id');
+        const name = button.getAttribute('data-name');
+        
+        profesorIdToDelete = id;
+        deleteMessage.textContent = `¿Estás seguro de que deseas eliminar al profesor "${name}"? Esta acción no se puede deshacer.`;
+        deleteModal.classList.remove('hidden');
+      });
+    });
+    
+    cancelDelete.addEventListener('click', () => {
+      deleteModal.classList.add('hidden');
+      profesorIdToDelete = null;
+    });
+    
+    confirmDelete.addEventListener('click', () => {
+      // Aquí iría la lógica para eliminar el profesor
+      // Por ahora, solo ocultamos la fila
+      if (profesorIdToDelete) {
+        const rowToDelete = document.querySelector(`.delete-btn[data-id="${profesorIdToDelete}"]`).closest('tr');
+        rowToDelete.remove();
+        
+        deleteModal.classList.add('hidden');
+        profesorIdToDelete = null;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProfeScore - Agregar Maestro</title>
+
+  <link rel="shortcut icon" href="/img/notion-face.png" type="image/x-icon">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white min-h-screen">
+  <!-- Main Content -->
+  <main class="container mx-auto h-dvh flex items-center justify-center">
+    <div class="w-md">
+      <h1 class="text-2xl font-bold mb-6">Iniciar Sesión</h1>
+      
+      <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+        <form class="space-y-6">
+          <div class="space-y-2">
+            <label for="fullName" class="block text-sm font-medium text-gray-700">Correo</label>
+            <input
+              id="fullName"
+              name="fullName"
+              type="email"
+              placeholder="nombre@correo.com"
+              required
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            >
+          </div>
+
+          <div class="space-y-2">
+            <label for="fullName" class="block text-sm font-medium text-gray-700">Contraseña</label>
+            <input
+              id="fullName"
+              name="fullName"
+              type="password"
+              placeholder="123456"
+              required
+              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            >
+          </div>
+
+          <div class="space-y-2">
+            <a
+                href="/paginas/admin/index.html"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+            >Iniciar Sesión</a>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer minimalista -->
+  <footer class="inset-x-0 bottom-0">
+    <div class="bg-white py-8 border-t border-gray-200 absolute inset-x-0 bottom-0 flex justify-center">
+        <div class="min-w-100 px-4 text-center text-gray-600 flex flex-col justify-between gap-4 md:flex-row">
+            <p>&copy; ProfeScore - <script>document.write(new Date().getFullYear())</script></p>
+            <a href="#" class="hover:text-indigo-600 hover:font-bold transition-all">FAQ</a>
+            <a href="#" class="hover:text-indigo-600 hover:font-bold transition-all">Terminos de Privacidad</a>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
