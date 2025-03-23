@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ProfeScore - Agregar Maestro</title>
-
-  <link rel="shortcut icon" href="/img/notion-face.png" type="image/x-icon">
-
+  <title>RATE - Iniciar Sesión</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
@@ -33,68 +30,178 @@
     }
   </script>
 </head>
-<body class="bg-white min-h-screen">
+<body class="bg-white min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="border-b border-gray-200 bg-white">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/index.html" class="text-xl font-bold text-black">ProfeScore</a>
+      <a href="/index.html" class="text-sm text-gray-600 hover:text-indigo-600">
+        Volver al inicio
+      </a>
+    </div>
+  </header>
+
   <!-- Main Content -->
-  <main class="container mx-auto h-dvh flex items-center justify-center">
-    <div class="w-md">
-      <h1 class="text-2xl font-bold mb-6">Iniciar Sesión</h1>
-      
-      <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
-        <form class="space-y-6">
+  <main class="flex-1 flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md">
+      <!-- Login Card -->
+      <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-8">
+        <div class="text-center mb-8">
+          <h1 class="text-2xl font-bold text-gray-900">Iniciar Sesión</h1>
+          <p class="text-gray-600 mt-2">Ingresa tus credenciales para acceder</p>
+        </div>
+        
+        <form id="login-form" class="space-y-6">
+          <!-- Email Field -->
           <div class="space-y-2">
-            <label for="fullName" class="block text-sm font-medium text-gray-700">Correo</label>
-            <input
-              id="fullName"
-              name="fullName"
-              type="email"
-              placeholder="nombre@correo.com"
-              required
-              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            >
-          </div>
-
-          <div class="space-y-2">
-            <label for="fullName" class="block text-sm font-medium text-gray-700">Contraseña</label>
-            <input
-              id="fullName"
-              name="fullName"
-              type="password"
-              placeholder="123456"
-              required
-              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            >
-          </div>
-
-          <div class="space-y-2">
-            <a
-                href="/paginas/admin/index.html"
-                class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium"
-            >Iniciar Sesión</a>
+            <label for="email" class="block text-sm font-medium text-gray-700">
+              Correo electrónico
+            </label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <i class="fas fa-envelope text-gray-400"></i>
+              </div>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="w-full pl-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="usuario@ejemplo.com"
+              >
+            </div>
+            <p id="email-error" class="text-red-500 text-sm mt-1 hidden">
+              Por favor ingresa un correo electrónico válido
+            </p>
           </div>
           
+          <!-- Password Field -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label for="password" class="block text-sm font-medium text-gray-700">
+                Contraseña
+              </label>
+              <a href="#" class="text-xs text-indigo-600 hover:text-indigo-500">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <i class="fas fa-lock text-gray-400"></i>
+              </div>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                class="w-full pl-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="••••••••"
+              >
+              <button 
+                type="button" 
+                id="toggle-password" 
+                class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-500"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <p id="password-error" class="text-red-500 text-sm mt-1 hidden">
+              La contraseña debe tener al menos 6 caracteres
+            </p>
+          </div>
+          
+          <!-- Submit Button -->
+          <div>
+            <button
+              type="submit"
+              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Iniciar Sesión
+            </button>
+          </div>
         </form>
       </div>
     </div>
   </main>
 
-  <!-- Footer minimalista -->
-  <footer class="inset-x-0 bottom-0">
-    <div class="bg-white py-8 border-t border-gray-200 absolute inset-x-0 bottom-0 flex justify-center">
-        <div class="min-w-100 px-4 text-center text-gray-600 flex flex-col justify-between gap-4 md:flex-row">
-            <p>&copy; ProfeScore - <script>document.write(new Date().getFullYear())</script></p>
-            <a href="#" class="hover:text-indigo-600 hover:font-bold transition-all">FAQ</a>
-            <a href="#" class="hover:text-indigo-600 hover:font-bold transition-all">Terminos de Privacidad</a>
-        </div>
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 py-4">
+    <div class="container mx-auto px-4 text-center text-sm text-gray-500">
+      <p>&copy; ProfeScore - <script>document.write(new Date().getFullYear())</script></p>
     </div>
   </footer>
 
   <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+    // Form validation
+    const loginForm = document.getElementById('login-form');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+    const togglePasswordButton = document.getElementById('toggle-password');
     
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    // Toggle password visibility
+    togglePasswordButton.addEventListener('click', () => {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      
+      // Toggle eye icon
+      const eyeIcon = togglePasswordButton.querySelector('i');
+      eyeIcon.classList.toggle('fa-eye');
+      eyeIcon.classList.toggle('fa-eye-slash');
+    });
+    
+    // Email validation
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+    
+    // Form submission
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      
+      // Validate email
+      if (!emailInput.value.trim() || !isValidEmail(emailInput.value)) {
+        emailError.classList.remove('hidden');
+        emailInput.classList.add('border-red-500');
+        isValid = false;
+      } else {
+        emailError.classList.add('hidden');
+        emailInput.classList.remove('border-red-500');
+      }
+      
+      // Validate password
+      if (!passwordInput.value.trim() || passwordInput.value.length < 6) {
+        passwordError.classList.remove('hidden');
+        passwordInput.classList.add('border-red-500');
+        isValid = false;
+      } else {
+        passwordError.classList.add('hidden');
+        passwordInput.classList.remove('border-red-500');
+      }
+      
+      if (isValid) {
+        // Here you would normally send the form data to your server
+        console.log('Form submitted successfully');
+        
+        // For demo purposes, redirect to admin dashboard
+        window.location.href = 'index.html';
+      }
+    });
+    
+    // Clear validation errors on input
+    emailInput.addEventListener('input', () => {
+      emailError.classList.add('hidden');
+      emailInput.classList.remove('border-red-500');
+    });
+    
+    passwordInput.addEventListener('input', () => {
+      passwordError.classList.add('hidden');
+      passwordInput.classList.remove('border-red-500');
     });
   </script>
 </body>
